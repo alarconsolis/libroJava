@@ -3,6 +3,9 @@ public class HelloWorld {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		final int DIAS_SEMANA = 7;
+		
   System.out.println("hello World");
 	
 	String [] alumnos= {
