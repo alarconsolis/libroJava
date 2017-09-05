@@ -5,7 +5,9 @@ public class HelloWorld {
 		// TODO Auto-generated method stub
   System.out.println("hello World");
 	
-	String [] alumnos= {"Arkaitz",
+	String [] alumnos= {
+						"Ander",
+						"Arkaitz",
 						"Erlantz",
 						"Fran",
 						"Cristian",
