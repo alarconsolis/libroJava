@@ -1,65 +1,57 @@
 package com.ipartek.formacion.javalibro.pojo;
-/**
- * Clase para crear canciones
- * 
- * @author Administrador
- *
- */
+
 public class Cancion {
-	// Atributos
-	
-	private String Titulo;
-	private String Artista;
-	private String Duracion;
-	
-	// Constructores
-	
-	public Cancion() {
-		super();
-		this.Titulo = "";
-		this.Artista = "";
-		this.Duracion = "";
-	}
-	
-	
-	public Cancion(String Titulo, String Artista,String Duracion) {
-		super();
-		this.Titulo = Titulo;
-		this.Artista = Artista;
-		this.Duracion = Duracion;
-		
-	}
-	
-	
-	// getters y setters
 
-	public String getTitulo() {
-		return Titulo;
+	
+	private String nombre;
+	private String artista;
+	private String duracion;
+	private long id;
+	
+	public Cancion(String nombre, String artista, String duracion) {
+		super();
+		this.id = -1;
+		this.nombre = nombre;
+		this.artista = artista;
+		this.duracion = duracion;
 	}
 
-	public void setTitulo(String titulo) {
-		Titulo = titulo;
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getArtista() {
-		return Artista;
+		return artista;
 	}
 
 	public void setArtista(String artista) {
-		Artista = artista;
+		this.artista = artista;
 	}
 
 	public String getDuracion() {
-		return Duracion;
+		return duracion;
 	}
 
 	public void setDuracion(String duracion) {
-		Duracion = duracion;
+		this.duracion = duracion;
 	}
 
 	@Override
 	public String toString() {
-		return "Cancion [Titulo=" + Titulo + ", Artista=" + Artista + ", Duracion=" + Duracion + "]";
+		return "Cancion [nombre=" + nombre + ", artista=" + artista + ", duracion=" + duracion + ", id=" + id + "]";
 	}
-
+	
+	
 }

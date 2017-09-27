@@ -1,19 +1,23 @@
-package com.ipartek.formacion.javalibro.pojo;
+package com.ipartek.formacion.javalibro.entregar;
 
-import com.ipartek.formacion.javalibro.excepciones.PersonaException;
+import java.util.regex.Pattern;
+
+import com.ipartek.formacion.javalibro.entregar.PersonaException;
 import com.ipartek.formacion.javalibro.utilidades.Validaciones;
 
 public class Persona {
-
+	
 	public static int MAYOR_EDAD = 18;
-
+	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+		    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 	private String nombre;
 	private String apellido1;
 	private String ciudad;
+	private int edad;
 	private String email;
 	private String dni;
 	private String rol;
-	private int edad;
+	
 
 	public Persona(String nombre, String apellido1, String ciudad, int edad, String email, String dni, String rol )
 			throws PersonaException {
@@ -61,7 +65,7 @@ public class Persona {
 	public void setEmail(String email) throws PersonaException {
 
 		if (!Validaciones.email(email)) {
-			throw new PersonaException(PersonaException.MSG_EMAIL_ERROR);
+			throw new PersonaException(PersonaException.SMS_EMAIL_ERROR);
 		}
 		this.email = email;
 	}
@@ -70,7 +74,12 @@ public class Persona {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(String dni) throws PersonaException {
+		if(!Validaciones.dni(dni)) {
+			
+			throw new PersonaException(PersonaException.SMS_DNI_ERROR);		
+		
+		}
 		this.dni = dni;
 	}
 
@@ -96,7 +105,7 @@ public class Persona {
 	 */
 	public void setEdad(int edad) throws PersonaException {
 		if (edad < MAYOR_EDAD) {
-			throw new PersonaException(PersonaException.MSG_EDAD_MENOR);
+			throw new PersonaException(PersonaException.SMS_EDAD_MENOR);
 		}
 		this.edad = edad;
 	}
